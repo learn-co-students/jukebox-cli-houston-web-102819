@@ -8,6 +8,9 @@
     end
     
   end
+  def exit_jukebox
+    puts "Goodbye"
+  end
 
 def play(songs)
     puts "Please enter a song name or number:"
@@ -15,25 +18,28 @@ def play(songs)
     songs.each_with_index do | song, index |
        
         if command == (index +1).to_s 
-            return puts song
+            return puts "Playing #{song}"
         elsif song == command
-            return puts song
+            return puts "Playing #{song}"
         end
     end
     puts "Invalid input, please try again"
 end
+def help 
+    puts "- I accept the following commands:"
+    puts "- help : displays this help message"
+    puts "- list : displays a list of songs you can play"
+    puts "- play : lets you choose a song to play"
+    puts "- exit : exits this program"
+end
 
 
  def run(songs)
-    p "Please enter command:"
+    puts "Please enter a command:"
     command = gets.strip
     while command != "exit"
     if command == "help"
-         p "I accept the following commands:"
-         p "- help : displays this help message"
-         p "- list : displays a list of songs you can play"
-          p "- play : lets you choose a song to play"
-          p "- exit : exits this program"
+         help
     elsif command == "list"
         list(songs)
         
@@ -43,9 +49,9 @@ end
 
 
     end
-   
+    command = gets.strip
 end
-
+exit_jukebox
 end
 
 
